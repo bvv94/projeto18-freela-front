@@ -4,6 +4,7 @@ import ButtonStyled from "../Style/StyledButton"
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { BASE_URL } from "../services/apiAuth";
 
 export default function SignIn() {
 
@@ -21,7 +22,7 @@ export default function SignIn() {
         e.preventDefault();
         console.log("Cadastrando");
 
-        const promise = axios.post("https://mock-api.driven.com.br/api/v4/driven-plus/auth/sign-up", body)
+        const promise = axios.post(`${BASE_URL}/sign-up`, body)
 
         //se sucesso to=/subscriptions
         promise.then((res) => {

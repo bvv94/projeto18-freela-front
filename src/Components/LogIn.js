@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from '../Context/UserContext.js';
 import axios from "axios";
 import { useContext } from "react"
+import { BASE_URL } from "../services/apiAuth.js"
 
 export default function LogIn() {
 
@@ -17,7 +18,7 @@ export default function LogIn() {
 
         const body = { cpf, password }
         e.preventDefault();
-        const promise = axios.post("https://mock-api.driven.com.br/api/v4/driven-plus/auth/login", body)
+        const promise = axios.post(`${BASE_URL}/login`, body)
 
 
         promise.then((res) => {
